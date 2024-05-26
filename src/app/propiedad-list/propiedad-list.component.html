@@ -1,1 +1,25 @@
-<p>propiedad-list works!</p>
+<h2>Propiedades Final</h2>
+<table>
+  <thead>
+    <tr>
+      <th>ID Propiedad</th>
+      <th>Nombre de la Propiedad</th>
+      <th>Ubicación Propiedad</th>
+      <th>Número de Habitaciones</th>
+      <th>Número de Baños</th>
+      <th>Valor de la propiedad</th>
+    </tr>
+  </thead>
+  <tbody>
+        @for (propiedad of propiedades; track propiedad.id){
+           <tr>
+            <td>{{ propiedad.id }}</td>
+            <td>{{ propiedad.NombrePropiedad }}</td>
+            <td>{{ propiedad.Ubicacion }}</td>
+            <td>{{ propiedad.NumHabitaciones }}</td>
+            <td>{{ propiedad.NumBanos }}</td>
+            <td>{{ propiedad.valorCom }}</td>
+           </tr> 
+        }
+        </tbody>
+</table>

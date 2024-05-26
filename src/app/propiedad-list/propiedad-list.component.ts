@@ -6,16 +6,17 @@ import { PropiedadService } from '../services/propiedad.service';
   standalone: true,
   imports: [],
   templateUrl: './propiedad-list.component.html',
-  styleUrl: './propiedad-list.component.css'
+  styleUrls: ['./propiedad-list.component.css']
 })
-export default class PropiedadListComponent implements OnInit{
+
+export default class PropiedadListComponent implements OnInit {
   private propiedadService = inject(PropiedadService);
+  propiedades: any[] = [];
 
   ngOnInit(): void {
-  this.propiedadService.list()
-  .subscribe(contacts => {
-    console.log(contacts);
-
-  });
+    this.propiedadService.list()
+      .subscribe((propiedades: any) => {
+        this.propiedades = propiedades;
+      });
   }
 }
