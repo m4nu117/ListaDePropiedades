@@ -1,5 +1,12 @@
-<h2>Propiedades Final</h2>
-<table>
+<h2 class="mb-5"> AirBnB Admin Access Granted</h2>
+<h2 class="mb-5"> Propiedades Registradas</h2>
+
+<div class="text-end">
+    <button class="btn btn-primary" routerLink="/new">
+        Registrar Nueva Propiedad
+    </button>
+</div>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>ID Propiedad</th>
@@ -14,10 +21,10 @@
         @for (propiedad of propiedades; track propiedad.id){
            <tr>
             <td>{{ propiedad.id }}</td>
-            <td>{{ propiedad.NombrePropiedad }}</td>
-            <td>{{ propiedad.Ubicacion }}</td>
-            <td>{{ propiedad.NumHabitaciones }}</td>
-            <td>{{ propiedad.NumBanos }}</td>
+            <td>{{ propiedad.nombrePropiedad }}</td>
+            <td>{{ propiedad.ubicacion }}</td>
+            <td>{{ propiedad.numHabitaciones }}</td>
+            <td>{{ propiedad.numBanos }}</td>
             <td>{{ propiedad.valorCom }}</td>
            </tr> 
         }

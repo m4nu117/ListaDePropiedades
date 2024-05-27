@@ -1,0 +1,47 @@
+<h2 class="mb-1">Registro de Nueva Propiedad</h2>
+
+    <form [formGroup]="form" (ngSubmit)="create()">
+        <div class="mb-3">
+            <label for="NombrePropiedad">Nombre de la propiedad </label>
+            <input id="NombrePropiedad" type="text" placeholder="Nombre de la Propiedad" class="form-control"
+            formControlName="NombrePropiedad">
+            
+        </div>
+    
+        <div class="mb-3">
+            <label for="Ubicacion">Ubicacion de la Propiedad </label>
+            <input id="Ubicacion" type="text" placeholder="Ubicacion" class="form-control"
+            formControlName="Ubicacion">
+            
+        </div>
+        <div class="mb-3">
+            <label for="NumHabitaciones">Habitaciones en la Propiedad </label>
+            <input id="NumHabitaciones" type="number" placeholder="Habitaciones en la Propiedad" class="form-control"
+            formControlName="NumHabitaciones">
+            
+        </div>
+        <div class="mb-3">
+            <label for="NumBanos">Baños en la Propiedad </label>
+            <input id="NumBanos" type="number" placeholder="Baños en la Propiedad" class="form-control"
+            formControlName="NumBanos">
+            
+        </div>
+        <div class="mb-3">
+            <label for="valorCom">Valor de la propiedad por noche </label>
+            <input id="valorCom" type="number" placeholder="Valor de la propiedad por noche" class="form-control"
+            formControlName="valorCom">
+            
+        </div>
+    
+        <div class="text-end">
+        <button type="button" class="btn btn-light" routerLink="/">
+            Cancelar Registro
+        </button>   
+        <button class="btn btn-primary ms-2">
+                Crear Solicitud de Registro
+            </button>
+           
+            </div>
+       
+    
+    </form>
