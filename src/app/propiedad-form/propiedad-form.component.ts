@@ -16,10 +16,10 @@ export default class PropiedadFormComponent {
   private propiedadService = inject(PropiedadService);
 
   form = this.fb.group({
-    NombrePropiedad: ['',[Validators.required]],
-    Ubicacion: ['',[Validators.required]],
-    NumHabitaciones: ['',[Validators.required]],
-    NumBanos: ['',[Validators.required]],
+    nombrePropiedad: ['',[Validators.required]],
+    ubicacion: ['',[Validators.required]],
+    numHabitaciones: ['',[Validators.required]],
+    numBanos: ['',[Validators.required]],
     valorCom: ['',[Validators.required]]
 
   })
