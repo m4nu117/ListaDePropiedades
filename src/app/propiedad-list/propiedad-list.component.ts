@@ -17,9 +17,22 @@ export default class PropiedadListComponent implements OnInit {
   propiedades: Propiedad[] = [];
 
   ngOnInit(): void {
+    this.loadAll();
+  }
+
+
+  loadAll(){
     this.propiedadService.list()
       .subscribe(propiedades => {
         this.propiedades = propiedades;
       });
   }
+
+  deletePropiedad(propiedad: Propiedad) {
+  this.propiedadService.delete(propiedad.id)
+    .subscribe(() => {
+      this.propiedades = this.propiedades.filter(p => p.id !== propiedad.id);
+    });
+}
+
 }

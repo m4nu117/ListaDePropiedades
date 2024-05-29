@@ -15,7 +15,8 @@
       <th>Número de Habitaciones</th>
       <th>Número de Baños</th>
       <th>Valor de la propiedad</th>
-    </tr>
+      <th></th>
+     </tr>
   </thead>
   <tbody>
         @for (propiedad of propiedades; track propiedad.id){
@@ -26,7 +27,15 @@
             <td>{{ propiedad.numHabitaciones }}</td>
             <td>{{ propiedad.numBanos }}</td>
             <td>{{ propiedad.valorCom }}</td>
-           </tr> 
+            <td class="text-end">
+              <button class="btn btn-primary"[routerLink]="[propiedad.id, 'edit']">
+                Revisar Solicitud
+              </button>
+              <button class="btn btn-danger"(click)="deletePropiedad(propiedad)">
+                Rechazar Solicitud
+              </button>
+            </td>
+          </tr> 
         }
-        </tbody>
+    </tbody>
 </table>

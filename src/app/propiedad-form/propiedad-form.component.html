@@ -1,47 +1,98 @@
-<h2 class="mb-1">Registro de Nueva Propiedad</h2>
+<h2 class="mb-5">
+    @if (propiedad) {
+        Editar
+    } @else{
+        Nuevo 
+    }Contacto
+</h2>
 
-    <form [formGroup]="form" (ngSubmit)="create()">
-        <div class="mb-3">
-            <label for="nombrePropiedad">Nombre de la propiedad </label>
-            <input id="nombrePropiedad" type="text" placeholder="Nombre de la Propiedad" class="form-control"
-            formControlName="nombrePropiedad">
+<div class="row-cols-3 justify-content-center">
+    @if (form) {
+        <div>
             
-        </div>
-    
-        <div class="mb-3">
-            <label for="ubicacion">Ubicacion de la Propiedad </label>
-            <input id="ubicacion" type="text" placeholder="ubicacion" class="form-control"
-            formControlName="ubicacion">
-            
-        </div>
-        <div class="mb-3">
-            <label for="numHabitaciones">Habitaciones en la Propiedad </label>
-            <input id="numHabitaciones" type="number" placeholder="Habitaciones en la Propiedad" class="form-control"
-            formControlName="numHabitaciones">
-            
-        </div>
-        <div class="mb-3">
-            <label for="numBanos">Baños en la Propiedad </label>
-            <input id="numBanos" type="number" placeholder="Baños en la Propiedad" class="form-control"
-            formControlName="numBanos">
-            
-        </div>
-        <div class="mb-3">
-            <label for="valorCom">Valor de la propiedad por noche </label>
-            <input id="valorCom" type="number" placeholder="Valor de la propiedad por noche" class="form-control"
-            formControlName="valorCom">
-            
-        </div>
-    
-        <div class="text-end">
-        <button type="button" class="btn btn-light" routerLink="/">
-            Cancelar Registro
-        </button>   
-        <button class="btn btn-primary ms-2">
-                Crear Solicitud de Registro
-            </button>
-           
+        @if (errors.length) {
+            <div class="alert alert-danger">
+                <ul>
+                    @for (error of errors; track error) {
+                        <li>{{ error }} </li>
+                    }
+                </ul>
+
             </div>
-       
+        }
+        
+        <form [formGroup]="form" (ngSubmit)="save()">
+            <div class="mb-3">
+                <label for="nombrePropiedad">Nombre de la propiedad </label>
+                <input id="nombrePropiedad" type="text" placeholder="Nombre de la Propiedad" class="form-control"
+                formControlName="nombrePropiedad">
+
+               @if (form.get('nombrePropiedad ')?.hasError('required')) {
+                <p class ="invalid-feedback d-block"> El nombre es obligatorio </p>
+               }
+            </div>
+        
+            <div class="mb-3">
+                <label for="ubicacion">Ubicacion de la Propiedad </label>
+                <input id="ubicacion" type="text" placeholder="Ubicacion" class="form-control"
+                formControlName="Ubicacion">
+
+                @if (form.get('ubicacion ')?.hasError('required')) {
+                    <p class ="invalid-feedback d-block"> La ubicacion es obligatoria </p>
+                   }
+                
+            </div>
+            <div class="mb-3">
+                <label for="numHabitaciones">Habitaciones en la Propiedad </label>
+                <input id="numHabitaciones" type="number" placeholder="Habitaciones en la Propiedad" class="form-control"
+                formControlName="numHabitaciones">
+
+                @if (form.get('numHabitaciones ')?.hasError('required')) {
+                    <p class ="invalid-feedback d-block"> La cantidad de Habitaciones es obligatoria </p>
+                   }
+
+            </div>
+            <div class="mb-3">
+                <label for="numBanos">Baños en la Propiedad </label>
+                <input id="numBanos" type="number" placeholder="Baños en la Propiedad" class="form-control"
+                formControlName="numBanos">
+
+                @if (form.get('numBanos ')?.hasError('required')) {
+                    <p class ="invalid-feedback d-block"> La cantidad de baños es obligatoria </p>
+                   }
+                
+            </div>
+            <div class="mb-3">
+                <label for="valorCom">Valor de la propiedad por noche </label>
+                <input id="valorCom" type="number" placeholder="Valor de la propiedad por noche" class="form-control"
+                formControlName="valorCom">
+
+                @if (form.get('valorCom ')?.hasError('required')) {
+                    <p class ="invalid-feedback d-block"> El valor es requerido en COL </p>
+                   }
+                
+            </div>
+        
+            <div class="text-end">
+            <button type="button" class="btn btn-light" routerLink="/">
+                Cancelar Registro
+            </button>
+
+            <button class="btn btn-primary ms-2">
+                    @if (propiedad) {
+                        Actualizar
+                    }@else {
+                        Crear 
+                    }Contacto
+                </button>
     
-    </form>
+        
+               
+            </div>
+           
+        
+        </form>
+        </div>
+    }
+
+</div>

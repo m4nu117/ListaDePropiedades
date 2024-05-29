@@ -21,7 +21,7 @@ export class PropiedadService {
   update (id:number, propiedad: any) {
     return this.http.put<Propiedad>('http://localhost:8080/api/RegisterProperty/${id}', propiedad)
   }
-  delete (id:number, propiedad: any) {
+  delete (id:number) {
     return this.http.delete<void>('http://localhost:8080/api/RegisterProperty/${id}');
   }
 }

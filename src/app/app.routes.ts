@@ -8,6 +8,10 @@ export const routes: Routes = [
     {
         path: 'new',
         loadComponent: () => import ('./propiedad-form/propiedad-form.component')
+    },
+    {
+        path: ':id/edit',
+        loadComponent: () => import ('./propiedad-form/propiedad-form.component')
     }
 
 ];
